@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Surprise</title>
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    background: #ffe6f0;
+    font-family: 'Arial', sans-serif;
+    position: relative;
+  }
+
+  /* Heart Rain */
+  .heart {
+    position: absolute;
+    color: #ff4d6d;
+    font-size: 24px;
+    animation: fall 5s linear infinite;
+    user-select: none;
+    z-index: 3;
+  }
+
+  @keyframes fall {
+    0% { transform: translateY(-50px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(50%) rotate(360deg); opacity: 0; }
+  }
+
+  /* Video */
+  video {
+    video {
+  position: relative;      /* ← important */
+  width: 70%;              /* size of video */
+  max-width: 400px;        /* optional */
+  height: auto;            /* keeps ratio */
+  border-radius: 12px;
+  z-index: 1;
+}
+
+}
+
+  
+
+  /* Envelope (small, floating) */
+  .envelope {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 150px;
+    height: 90px;
+    background: rgba(93, 1, 18, 0.9);
+    border-radius: 10px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    cursor: pointer;
+    z-index: 4; /* above video */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+
+  /* Card inside envelope */
+  .card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 320px;
+    height: 200px;
+    background: #fff;
+    border-radius: 20px;
+    color: #0f0607;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    text-align: center;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    z-index: 5;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+  }
+
+  .card.show {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+</style>
+</head>
+<body>
+
+<video id="birthdayVideo" src="pookie.mp4" controls></video>
+
+<div class="envelope" id="envelope">To: My Love</div>
+<div class="card" id="bdayCard">🎉 Happy Birthday!
+  prasoon 🎉</div>
+
+<script>
+
+  const video = document.getElementById('birthdayVideo');
+  const card = document.getElementById('bdayCard');
+  const envelope = document.getElementById('envelope');
+
+  // When video ends, envelope disappears and card appears
+  video.addEventListener('ended', () => {
+    envelope.style.transform = "translate(-50%, -50%) scale(0)";
+    envelope.style.opacity = "0";
+    setTimeout(() => {
+      card.classList.add('show');
+    }, 500); // small delay for smooth effect
+  });
+
+  // Heart rain effect
+  function createHeart() {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.fontSize = Math.random() * 24 + 16 + 'px';
+    heart.style.animationDuration = 3 + Math.random() * 5 + 's';
+    heart.innerHTML = '❤️';
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 8000);
+  }
+
+  setInterval(createHeart, 300);
+
+</script>
+
+</body>
+</html>

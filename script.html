@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Surprise 🎉</title>
+
+  <style>
+    body{
+
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 25px;
+      text-align: center;
+      width: 350px;
+      animation: pop 0.8s ease;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+      z-index: 2;
+    }
+
+    @keyframes pop {
+      from {
+        transform: scale(0.5);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    h1 {
+      color: #ff4d6d;
+      font-size: 26px;
+    }
+
+    p {
+      color: #444;
+      font-size: 16px;
+    }
+
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: red;
+      animation: fall 3s linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-10vh) rotate(0deg);
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <button class="next-btn" onclick="goToVideo()">
+  💖 Welcome to cute vdo 💖
+</button>
+
+
+  <!-- 🎶 Background music -->
+  <audio id="bgMusic" loop>
+  <source src="love.mpeg" type="audio/mpeg">
+</audio>
+
+<button id="playMusic"
+  style="
+    position: fixed;
+    bottom: 20px;
+    background: #ff4d6d;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-size: 14px;
+    cursor: pointer;
+    z-index: 5;">
+  🎶 Tap to Play Music
+</button>
+
+
+  <div class="card">
+    <h1>🎉 HAPPY BIRTHDAY</h1>
+
+    <p>
+      <!-- ✨ CHANGE THIS ✨ -->
+      My love, my best friend, my favorite person 💖
+    </p>
+
+    <p>
+      <!-- ✨ CHANGE THIS ✨ -->
+      My love,
+You mean more to me than words could ever fully explain. I miss you every single day—in the quiet moments before I fall asleep, in the early mornings when the world is still, and in ways that live silently in my heart. Somehow, every day of my life finds its way back to you.
+The distance between us may stretch at times, but it has only made my love stronger and steadier. You are not just the one I miss and love—you are the one I pray for. Even when we fight, even when things are not perfect, it only makes me want to love you harder, hold you closer, and choose you again and again.
+On your birthday and every day, know this: my heart is yours, in every moment, every distance, every emotion. Always. 🥹✨
+    </p>
+  </div>
+
+<script>
+  function goToVideo() {
+    window.location.href = "birth day.html";
+  }
+
+  // 🎉 CONFETTI BURST
+  for (let i = 0; i < 80; i++) {
+    const confetti = document.createElement("div");
+    confetti.className = "confetti";
+    confetti.style.left = Math.random() * 100 + "vw";
+    confetti.style.background =
+      "hsl(" + Math.random() * 360 + ", 100%, 60%)";
+    confetti.style.animationDelay = Math.random() * 2 + "s";
+    confetti.style.opacity = Math.random();
+    document.body.appendChild(confetti);
+  }
+
+  const music = document.getElementById("bgMusic");
+  const playBtn = document.getElementById("playMusic");
+
+  playBtn.addEventListener("click", () => {
+    music.play();
+    playBtn.style.display = "none";
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday ❤️</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      width: 330px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      color: #ff4d6d;
+      margin-bottom: 5px;
+    }
+
+    h2 {
+      color: #ff758f;
+      margin-top: 0;
+      font-size: 20px;
+    }
+
+    p {
+      color: #555;
+      font-size: 15px;
+    }
+
+    .countdown {
+      margin: 15px 0;
+      font-size: 16px;
+      color: #333;
+      font-weight: bold;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 12px 22px;
+      border: none;
+      border-radius: 30px;
+      background: #ff4d6d;
+      color: white;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #e63950;
+    }
+
+    .hidden-note {
+      display: none;
+      margin-top: 20px;
+      color: #333;
+      font-size: 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <h1>🎂 Happy Birthday</h1>
+
+    <!-- ✨ CHANGE THIS ✨ -->
+    <h2 id="name">MY BOY 💖</h2>
+
+    <p>
+      <!-- ✨ CHANGE THIS ✨ -->
+      To the most special person in my life,  
+      every moment with you feels like home 🤍
+    </p>
+
+    <div class="countdown" id="timer">
+      Loading countdown...
+    </div>
+
+    <button onclick="showNote()">Tap for Surprise 💌</button>
+
+
+    <div class="hidden-note" id="note">
+      <button onclick="showNote()">Tap for Surprise 💌</button>
+
+<button class="arrow-btn" onclick="goNext()">
+  ➡️ Move to 2nd page for more love 💖
+</button>
+
+      <!-- ✨ CHANGE THIS ✨ -->
+      Ours began in laughter,
+a spark I never saw coming,
+a feeling I tried to deny
+even as my heart chose you quietly.
+I have stumbled,
+and I know I have hurt you along the way.
+There may be moments ahead
+when I don’t get everything right.
+Still, my love keeps returning to you—
+steady, honest, and true.
+We won’t always think the same,
+and there will be days
+when our worlds don’t align.
+But none of that will ever lessen
+what I feel for you.
+If anything, every challenge
+only pulls me closer.
+With every fight we survive,
+with every silence we learn to soften,
+my love for you grows deeper—
+more patient,
+more certain,
+more yours.
+On your birthday,
+I want you to feel this without doubt:
+you are my comfort and my choice,
+my calm and my fire,
+and loving you is something
+I will keep doing,
+today and always.
+Happy Birthday, my love.
+    </div>
+  </div>
+
+  <script>
+    function goNext() {
+  window.location.href = "bday.html";
+}
+
+    
+    const boyfriendName = "prasoon";
+
+
+    const birthdayDate = new Date("2000-02-14T00:00:00").
+
+    document.getElementById("name").innerText = prasoon;
+
+    function showNote() {
+      document.getElementById("note").style.display = "block";
+    }
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = "2000- 02-14"- now;
+
+      if (distance < 0) {
+        document.getElementById("timer").innerHTML =
+          "🎉 IT'S YOUR DAY, " + prasoon + " 💖";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("timer").innerHTML =
+        days + " days " + hours + " hrs " +
+        minutes + " min " + seconds + " sec 💕";
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+
+</body>
+</html>
